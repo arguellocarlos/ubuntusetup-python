@@ -40,27 +40,24 @@ def print_ascii_art():
     print(art)
 
 def menu():
-    print("Menu:")
-    print("1. System Information")
-    print("2. Install Packages")
+    print("Ubuntu Post Installation Script...")
+    print("1. Add a new user with sudo privilege...")
+    print("2. Install Packages...")
     print("3. Option 3")
     print("4. Option 4")
     print("5. Option 5")
     choice = input("Enter your choice (1-5): ")
     if choice == "1":
-        print("Submenu A:")
-        print("A. Add a new user with sudo permissions")
-        submenu_choice = input("Enter your choice (A): ")
-        if submenu_choice.upper() == "A":
-            add_new_user()
-        else:
-            print("Invalid choice.")
+        add_new_user()
     elif choice == "2":
         install_packages()
     else:
         print("Invalid choice.")
 
 if __name__ == "__main__":
+    # Prompt for sudo password at the beginning
+    subprocess.run(["sudo", "-v"])
+    
     print_ascii_art()
     menu()
     check_ubuntu_version()
